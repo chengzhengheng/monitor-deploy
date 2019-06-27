@@ -43,7 +43,7 @@ spec:
     spec:
       nodeSelector:
           travis.io/schedule-only: "kafka"
-      toleration:
+      tolerations:
       - key: "travis.io/schedule-only"
         operator: "Equal"
         value: "kafka"
