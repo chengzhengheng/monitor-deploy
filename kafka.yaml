@@ -42,17 +42,20 @@ spec:
         app: kafka
     spec:
       nodeSelector:
-          deploy-queue: "yes"
+          travis.io/schedule-only: "kafka"
       toleration:
-      - key: "deploy-queue"
-        operator: "Exists"
+      - key: "travis.io/schedule-only"
+        operator: "Equal"
+        value: "kafka"
         effect: "NoSchedule"
-      - key: "deploy-queue"
-        operator: "Exists"
+      - key: "travis.io/schedule-only"
+        operator: "Equal"
+        value: "kafka"
         effect: "NoExecute"
         tolerationSeconds: 3600
-      - key: "deploy-queue"
-        operator: "Exists"
+      - key: "travis.io/schedule-only"
+        operator: "Equal"
+        value: "kafka"
         effect: "PreferNoSchedule"
       affinity:
         podAntiAffinity:

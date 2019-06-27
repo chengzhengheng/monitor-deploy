@@ -26,8 +26,8 @@ sh run.sh
 need deploy kafka and zookeeper to a special node,so you can use taint、toleration and label setting your node and statefulset
 
 ```bash
-kubectl taint node [node-name] deploy-queue=yes:Noschedule
-kubectl label node [node-name] deploy-queue=yes
+kubectl taint node [node-name] travis.io/schedule-only=kafka:Noschedule
+kubectl label node [node-name] travis.io/schedule-only=kafka
 kubectl create -f namesapce.yaml
 kubectl  create -f zk.yaml
 kubectl  create -f kafka.yaml
