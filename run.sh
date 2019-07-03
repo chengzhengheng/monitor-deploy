@@ -1,8 +1,8 @@
 #!/bin/bash 
 
 #build image
-tag="v0.11.0.3"
-project="fastop/k8s-kafka"
+tag="2.2.0"
+project="fastop/kafka"
 
 docker build -t $project:$tag .
 

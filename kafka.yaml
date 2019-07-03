@@ -82,7 +82,7 @@ spec:
       containers:
       - name: k8s-kafka
         imagePullPolicy: Always
-        image: fastop/kafka:v2
+        image: fastop/kafka:2.2.0
         resources:
           requests:
             memory: "600Mi"
@@ -155,7 +155,7 @@ spec:
           --override fetch.purgatory.purge.interval.requests=1000 \
           --override group.max.session.timeout.ms=300000 \
           --override group.min.session.timeout.ms=6000 \
-          #--override inter.broker.protocol.version=o.11.0.3 \
+          --override inter.broker.protocol.version=2.2.0 \
           --override log.cleaner.backoff.ms=15000 \
           --override log.cleaner.dedupe.buffer.size=134217728 \
           --override log.cleaner.delete.retention.ms=86400000 \

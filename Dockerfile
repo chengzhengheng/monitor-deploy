@@ -1,16 +1,16 @@
-FROM ubuntu-16.04
+FROM ubuntu
 ENV KAFKA_USER=kafka \
 KAFKA_DATA_DIR=/var/lib/kafka/data \
 JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 \
 KAFKA_HOME=/opt/kafka \
 PATH=$PATH:/opt/kafka/bin
 
-ARG KAFKA_VERSION=0.11.0.3
-ARG KAFKA_DIST=kafka_2.11-0.11.0.3
+ARG KAFKA_VERSION=2.2.0
+ARG KAFKA_DIST=kafka_2.12-2.2.0
 RUN set -x \
     && apt-get update \
-    && apt-get install -y openjdk-8-jre-headless
-        && wget -q "http://www.apache.org/dist/kafka/$KAFKA_VERSION/$KAFKA_DIST.tgz" \
+    && apt-get install -y wget openjdk-8-jre-headless gpg-agent\
+    && wget -q "http://www.apache.org/dist/kafka/$KAFKA_VERSION/$KAFKA_DIST.tgz" \
     && wget -q "http://www.apache.org/dist/kafka/$KAFKA_VERSION/$KAFKA_DIST.tgz.asc" \
     && wget -q "http://kafka.apache.org/KEYS" \
     && export GNUPGHOME="$(mktemp -d)" \

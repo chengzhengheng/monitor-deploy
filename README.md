@@ -3,13 +3,13 @@
 ### Requirements
 
 ```
-k8s1.12+ cluster 正常运行，nfs服务用于提供持久化存储
+k8s1.13.2+ cluster 正常运行，nfs服务用于提供持久化存储
 ```
 
 ### kafka-zk version
 
 ```
-kafka-0.11.0.3、scala-2.11、zk-3.4.10
+kafka-2.2.0、scala-2.12、zk-3.4.10
 ```
 
 ### Build image
@@ -26,7 +26,7 @@ sh run.sh
 need deploy kafka and zookeeper to a special node,so you can use taint、toleration and label setting your node and statefulset
 
 ```bash
-kubectl taint node [node-name] travis.io/schedule-only=kafka:Noschedule
+kubectl taint node [node-name] travis.io/schedule-only=kafka:NoSchedule
 kubectl label node [node-name] travis.io/schedule-only=kafka
 kubectl create -f namesapce.yaml
 kubectl  create -f zk.yaml
@@ -51,6 +51,8 @@ kubectl exec -it kafka-0 -- bash
 --zookeeper zk-0.zk-hs.kafka.svc.cluster.local:2181,zk-1.zk-hs.kafka.svc.cluster.local:2181,zk-2.zk-hs.kafka.svc.cluster.local:2181 \
 --partitions 3 \
 --replication-factor 2
+
+>kafka-topics.sh --list --zookeeper zk-0.zk-hs.kafka.svc.cluster.local:2181,zk-1.zk-hs.kafka.svc.cluster.local:2181,zk-2.zk-hs.kafka.svc.cluster.local:2181
 
 >kafka-console-consumer.sh --topic test --bootstrap-server localhost:9092
 
