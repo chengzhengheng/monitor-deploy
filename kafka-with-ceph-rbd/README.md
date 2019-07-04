@@ -87,3 +87,21 @@ create kafka cluster:
  kubeclt apply -f zk.yaml
  kubectl apply -f kafka.yaml
 ```
+## Dynamic expand ceph cluster
+
+```bash
+kubectl edit cephcluster rook-ceph -n rook-ceph
+```
+
+```
+nodes:
+   - config: null
+      name: ceph-node-4
+      resources: {}
+    - config: null
+      name: ceph-node-5
+      resources: {}
+    - config: null
+      name: ceph-node-6
+      resources: {}
+```
