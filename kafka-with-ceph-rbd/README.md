@@ -23,7 +23,7 @@ nodes: set  which node will use to deploy ceph
 ```bash
 kubectl apply -f cluster.yaml 
 ```
-there was a bug in ceph, when you use dashboard, ceph now not suport well weith iscsi. so you need modify default administrator role 
+there was a bug in rook, when you use dashboard, ceph now not suport well weith iscsi. so you need modify default administrator role 
 set with no iscsi in rook-ceph-operator pod:
 
 ```bash
