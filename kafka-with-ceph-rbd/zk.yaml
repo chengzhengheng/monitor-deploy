@@ -152,7 +152,7 @@ spec:
       #   volume.beta.kubernetes.io/storage-provisioner: fuseim.pri/ifs
     spec:
       accessModes: [ "ReadWriteMany" ]
-      storageClassName: nfs-storage
+      storageClassName: rook-ceph-block
       resources:
         requests:
           storage: 200Mi
