@@ -62,9 +62,9 @@ kubectl apply -f dashboard-external-https.yaml
 
 create a storageclass:
 
-	```bash
-	 kubectl create -f storageclass.yaml 
-	```
+```bash
+ kubectl create -f storageclass.yaml 
+```
 test ceph cluster:
 
 ```bash
