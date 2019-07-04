@@ -1,11 +1,14 @@
 # This repo is  about that deploy kafka cluster which use ceph-rbd as persistent storage
 
+```
   kafka verison: 2.2.0
   zookeeper version: 3.4.10
   rook version: 1.0.2
   ceph version: v14.2.1-20190430
   kubernetes version: 1.15.0
   system: ubuntu 16.04 4.17.0-041700-generic #201806041953 SMP Mon Jun 4 19:55:25 UTC 2018 x86_64 x86_64 x86_64 GNU/Linux
+```
+
 ## Deploy ceph cluster with rook
 
 ```bash
@@ -15,10 +18,13 @@ kubectl apply -f common.yaml
 kubectl apply -f operator.yaml 
 ```
 when all pods is running, Next need to deploy cluster.yaml, before that we need update some config.
+
+```
 dataDirHostPath: shuold mount  a single disk
 useAllNodes: set it to false,we need set nodeselector 
 useAllDevices: set it to false, we need mount a single disk
 nodes: set  which node will use to deploy ceph 
+```
 
 ```bash
 kubectl apply -f cluster.yaml 
