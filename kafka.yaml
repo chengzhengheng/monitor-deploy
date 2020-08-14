@@ -82,7 +82,7 @@ spec:
       containers:
       - name: k8s-kafka
         imagePullPolicy: Always
-        image: fastop/kafka:2.2.0
+        image: ops.atomhike.com/ops/kafka:2.5.0
         resources:
           requests:
             memory: "600Mi"
@@ -208,4 +208,4 @@ spec:
       storageClassName: nfs-storage 
       resources:
         requests:
-          storage:  300Mi
+          storage:  50Gi

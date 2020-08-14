@@ -2,7 +2,7 @@
 
 #build image
 tag="2.2.0"
-project="fastop/kafka"
+project="ops.atomhike.com/ops/kafka"
 
 docker build -t $project:$tag .
 

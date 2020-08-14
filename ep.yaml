@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Endpoints
+metadata:
+  name: druid
+subsets:
+  - addresses:
+      - ip: 192.168.2.113
+    ports:
+      - port: 8888
+        protocol: TCP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: druid
+spec:
+  ports:
+  - port: 8888
+    targetPort: 8888
+    protocol: TCP

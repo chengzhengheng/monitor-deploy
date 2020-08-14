@@ -1,0 +1,21 @@
+FROM centos
+ENV JAVA_HOME=/usr/local/jdk \
+PATH=$PATH:$JAVA_HOME/bin \
+CLASSPATH=.$CLASSPATH:$JAVA_HOME/lib:$JAVA_HOME/lib/tools.jar
+
+COPY jdk-8u261-linux-x64.tar.gz /usr/local/
+
+RUN set -x \
+    && cd /usr/local \
+    && tar xf jdk-8u261-linux-x64.tar.gz \
+    && mv /usr/local/jdk1.8.0_261/ /usr/local/jdk
+
+
+ARG DRUID_VERSION=0.19.0-bin
+ARG DRUID_DIST=apache-druid-0.19.0-bin
+RUN set -x \
+    && yum install -y wget \
+    && wget -q "https://mirrors.tuna.tsinghua.edu.cn/apache/druid/0.19.0/apache-druid-0.19.0-bin.tar.gz" \
+    && tar -xzf "$DRUID_DIST.tar.gz" -C /opt \
+    && rm -r "$DRUID_DIST.tar.gz"
+ENTRYPOINT ["/opt/apache-druid-0.19.0/bin/start-micro-quickstart"]

@@ -88,7 +88,7 @@ spec:
       containers:
       - name: kubernetes-zookeeper
         imagePullPolicy: Always
-        image: fastop/zookeeper:3.4.10
+        image: ops.atomhike.com/ops/zookeeper:3.4.10
         resources:
           requests:
             memory: "200Mi"
@@ -155,4 +155,4 @@ spec:
       storageClassName: nfs-storage
       resources:
         requests:
-          storage: 200Mi
+          storage: 10Gi
